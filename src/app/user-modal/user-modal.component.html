@@ -1,0 +1,66 @@
+<h1 mat-dialog-title>
+  {{ action }} User
+  <span class="fill-remaining-space"></span>
+</h1>
+<mat-dialog-content>
+  <form [formGroup]="userForm" novalidate *ngIf="!data.delete">
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="First name" formControlName="firstName">
+              <mat-error *ngIf="userForm.controls['firstName'].hasError('required')">
+                First name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Last name" formControlName="lastName">
+              <mat-error *ngIf="userForm.controls['lastName'].hasError('required')">
+                Last name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-error *ngIf="userForm.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Mobile Phone" formControlName="mobilePhone">
+              <mat-error *ngIf="userForm.controls['mobilePhone'].hasError('required')">
+                Mobile Phone is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Title" formControlName="title">
+            </mat-form-field>
+          </div>
+        </div>
+  </form>
+  <div *ngIf="data.delete">
+    <div style="display: flex;">
+      <mat-icon class="mat-icon notranslate material-icons error" *ngIf="data.error_icon">error_outline</mat-icon>
+      <span [innerHTML]="data.message"></span>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions style="justify-content: flex-end;margin-bottom: -12px;">
+  <button mat-stroked-button [mat-dialog-close]="false">Cancel</button>
+
+  <button *ngIf="!data.delete" style="float: right;" color="primary" mat-raised-button [mat-dialog-close]="userForm.value">{{ action }}</button>
+  <button *ngIf="data.delete" style="float: right;" color="primary" mat-raised-button [mat-dialog-close]="true">{{ action }}</button>
+</mat-dialog-actions>

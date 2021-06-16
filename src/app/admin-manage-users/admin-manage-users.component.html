@@ -1,0 +1,72 @@
+<div>
+  <div>
+    <h1 class="ui header" style="display: inline-block;">Manage Users</h1>
+    <button mat-raised-button color="primary" style="float:right" (click)="upsertUser(null)">New User</button>
+  </div>
+  
+  <div fxLayout="column" fxFlexFill>
+    <mat-table #table mat-table [dataSource]="dataSource" >
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let user">
+                {{ user.profile.firstName + ' ' + user.profile.lastName }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef class="table-column-width-28"> Email </mat-header-cell>
+            <mat-cell *matCellDef="let user" class="table-column-width-28">
+                {{ user.profile.email }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="mobilePhone" class="table-column-width-12">
+            <mat-header-cell *matHeaderCellDef class="table-column-width-12"> Mobile Phone </mat-header-cell>
+            <mat-cell *matCellDef="let user">
+                <ng-container>
+                    {{ user.profile.mobilePhone }}
+                </ng-container>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+            <mat-cell *matCellDef="let user">
+                {{ user.profile.title }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lastLogin">
+          <mat-header-cell *matHeaderCellDef> Last Login </mat-header-cell>
+          <mat-cell *matCellDef="let user">
+              {{ user.lastLogin | date: 'M/d/yy, h:mm a' }}
+          </mat-cell>
+        </ng-container>
+        
+
+        <ng-container matColumnDef="update">
+            <mat-header-cell *matHeaderCellDef class="table-column-width-4"></mat-header-cell>
+            <mat-cell *matCellDef="let user" class="center" class="table-column-width-4">
+              <a href="javascript:void(0)" matTooltip="Update User" matTooltipPosition="above" (click)="upsertUser(user)">
+                <mat-icon aria-hidden="false" aria-label="Update User" style="color: steelblue;">edit_outline</mat-icon>
+              </a>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef class="table-column-width-4"></mat-header-cell>
+            <mat-cell *matCellDef="let user" class="table-column-width-4">
+                <a href="javascript:void(0)" matTooltip="Delete User" matTooltipPosition="above" (click)="deleteUser(user)">
+                  <mat-icon aria-hidden="false" aria-label="Delete User" style="color: darkred;">delete_outline</mat-icon>
+                </a>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator #paginator [pageSize]="20" [pageSizeOptions]="[10, 20, 30, 40, 50]">
+    </mat-paginator>
+  </div>
+</div>

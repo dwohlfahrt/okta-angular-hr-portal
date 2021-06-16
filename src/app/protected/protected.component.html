@@ -1,0 +1,33 @@
+<div *ngIf="ready">
+  <h1 class="ui header">Welcome, DrumKing HR Professional </h1>
+  <div style="width:100%;">
+    <table style="margin-top: 40px;margin-left:10px;width:50%;padding-right:30px;">
+      <tbody>
+        <tr>
+          <td><b>Your Name</b></td>
+          <td>{{ claims.name }}</td>
+        </tr>
+        <tr>
+          <td><b>Your Email</b></td>
+          <td>{{ claims.email }}</td>
+        </tr>
+        <tr>
+          <td><b>Your Groups</b></td>
+          <td>{{ claims.groups.join(', ') }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="width:49%;padding-left:3px;margin-top:30px;">
+      <mat-card class="dashboard-card" style="border: 2px dashed grey; box-shadow: 0;">
+        <mat-card-content class="dashboard-card-content">          
+          <mat-nav-list>
+            <a mat-list-item>View Org Chart</a>
+            <a mat-list-item>View Benefits</a>
+            <a mat-list-item>Company Wiki</a>
+          </mat-nav-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

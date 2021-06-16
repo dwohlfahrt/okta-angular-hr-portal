@@ -1,0 +1,23 @@
+<div>
+  <h1 class="ui header">Manage {{ groupName }}</h1>
+  <div fxLayout="row" fxFlexFill *ngIf="ready">
+    <div class="container">
+      <h2>Not in Group</h2>
+    
+      <div cdkDropList id="notInGroup" cdkDropListSortingDisabled #notInGroup="cdkDropList" [cdkDropListData]="users"
+          [cdkDropListConnectedTo]="inGroup" class="list" (cdkDropListDropped)="drop($event)">
+        <div class="list-item" *ngFor="let user of users" cdkDrag>{{ user.profile.firstName }} {{ user.profile.lastName }}<br/>({{ user.profile.title }}}</div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <h2>In Group</h2>
+    
+      <div cdkDropList id="inGroup" cdkDropListSortingDisabled #inGroup="cdkDropList" [cdkDropListData]="members"
+          [cdkDropListConnectedTo]="notInGroup" class="list" (cdkDropListDropped)="drop($event)">
+        <div class="list-item" *ngFor="let member of members" cdkDrag [cdkDragDisabled]="member.profile.email === currentUser.email">{{ member.profile.firstName }} {{ member.profile.lastName }}<br/>({{ member.profile.title }}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+

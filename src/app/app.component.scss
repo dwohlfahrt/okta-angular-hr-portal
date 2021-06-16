@@ -1,0 +1,21 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+html, body {
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.app-component .ui.text.container {
+  max-width: 1000px !important;
+}
+
+.hidden-button {
+  color: #f5f5f5;
+}
+
+.hidden-button:hover {
+  color: black;
+}

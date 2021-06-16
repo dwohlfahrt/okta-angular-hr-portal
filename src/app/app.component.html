@@ -1,0 +1,25 @@
+<div fxLayout="column" fxFlexFill class="app-component">
+  <mat-toolbar color="primary">
+    <button mat-button routerLink="/" style="font-size: 20px;">DrumKing HR Portal</button>
+    <span class="example-spacer"></span>
+    <span *ngIf="isAuthenticated && claims">Welcome {{ claims.given_name }}</span>
+    <span class="example-spacer"></span>
+    <button mat-button *ngIf="!isAuthenticated" routerLink="/login">Login</button>
+    <button mat-button *ngIf="isAuthenticated" routerLink="/protected">Home</button>
+    <button mat-button *ngIf="hasAdminGroup" routerLink="/admin">HR Admin</button>
+    <button mat-button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
+  </mat-toolbar>
+
+  <div class="ui text container" style="margin-top: 4em; width: 1000px; max-width: 1000px; text-align: left;" fxFlex>
+    <router-outlet></router-outlet>
+  </div>
+
+  <div>
+    <mat-toolbar color="background">
+      <span class="example-spacer"></span>
+      <button *ngIf="accessToken" mat-button [cdkCopyToClipboard]="accessToken" class="hidden-button"><mat-icon style="font-size: 20px;">content_copy</mat-icon>Copy Access Token</button>
+      <button *ngIf="idToken" mat-button [cdkCopyToClipboard]="idToken" class="hidden-button"><mat-icon style="font-size: 20px;">content_copy</mat-icon>Copy Id Token</button>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+  </div>
+</div>
