@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as OktaSignIn from '@okta/okta-signin-widget';
-import config from '../app.config';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -12,16 +12,16 @@ export class LoginComponent implements OnInit {
   signIn: any;
   constructor() {
     this.signIn = new OktaSignIn({
-      baseUrl: config.oidc.issuer.split('/oauth2')[0],
-      clientId: config.oidc.clientId,
-      redirectUri: config.oidc.redirectUri,
-      logo: '/assets/drumking_logo.png',
+      baseUrl: environment.signIn.issuer,
+      clientId: environment.signIn.clientId,
+      redirectUri: environment.signIn.redirectUri,
+      logo: environment.signIn.logo,
       authParams: {
         pkce: true,
         responseMode: 'query',
-        issuer: config.oidc.issuer,
+        issuer: environment.signIn.issuer,
         display: 'page',
-        scopes: config.oidc.scopes,
+        scopes: environment.signIn.scopes,
       },
     });
   }

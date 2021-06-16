@@ -20,15 +20,13 @@ import {
   OktaAuthService,
 } from '@okta/okta-angular';
 
-import appConfig from './app.config';
-
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth: OktaAuthService, injector: any) => {
     const router = injector.get(Router);
     // Redirect the user to your custom login page
     router.navigate(['/login']);
   }
-}, appConfig.oidc);
+}, environment.signIn);
 
 import { OktaGroupGuard } from './guards/okta-group.guard';
 
