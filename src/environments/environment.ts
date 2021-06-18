@@ -16,7 +16,7 @@ export const environment = {
     clientId: `0oa5vxzeqdmLiexPg5d6`,
     issuer: `https://${orgSubdomain}.okta.com`,
     redirectUri: 'http://localhost:8080/login/callback',
-    logo: '/assets/drumking_logo.png',
+    logo: 'assets/drumking_logo.png',
     scopes: [
       'openid',
       'profile',
