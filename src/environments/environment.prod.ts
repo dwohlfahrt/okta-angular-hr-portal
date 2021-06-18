@@ -12,7 +12,7 @@ export const environment = {
   signIn: {
     clientId: `0oa5vxzeqdmLiexPg5d6`,
     issuer: `https://${orgSubdomain}.okta.com`,
-    redirectUri: 'http://dwohlfahrt.github.io/okta-angular-hr-portal/login/callback',
+    redirectUri: 'https://dwohlfahrt.github.io/okta-angular-hr-portal/login/callback',
     logo: 'assets/drumking_logo.png',
     scopes: [
       'openid',

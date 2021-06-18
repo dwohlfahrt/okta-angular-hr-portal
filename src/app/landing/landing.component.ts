@@ -24,7 +24,7 @@ export class LandingComponent implements OnInit {
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     if (this.isAuthenticated) {
-      this.router.navigate(['/protected']);
+      this.router.navigate(['protected']);
     }
   }
 }
