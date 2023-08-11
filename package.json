@@ -27,7 +27,7 @@
     "colors": "^1.4.0",
     "core-js": "^3.6.5",
     "material-design-icons": "^3.0.1",
-    "rxjs": "^6.6.3",
+    "rxjs": "^6.6.7",
     "semantic-ui-css": "^2.4.1",
     "tslib": "^2.0.1",
     "zone.js": "~0.11.1"
