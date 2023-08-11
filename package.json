@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "^10.1.1",
     "@angular/router": "^10.1.1",
     "@okta/okta-angular": "^2.2.0",
-    "@okta/okta-signin-widget": "^4.4.2",
+    "@okta/okta-signin-widget": "^4.5.2",
     "colors": "^1.4.0",
     "core-js": "^3.6.5",
     "material-design-icons": "^3.0.1",
